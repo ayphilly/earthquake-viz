@@ -10,6 +10,7 @@ and presents it using both visual charts and data tables.
 - Real-time Data: Fetches live earthquake data from USGS CSV feed
 - Responsive Design: Optimized two-panel layout for desktop/laptop screens
 
+
 ### Data Management
 - TanStack Table: Professional data table with pagination, sorting, and filtering
 - Comprehensive CSV Display: Showing all columns from the earthquake CSV data

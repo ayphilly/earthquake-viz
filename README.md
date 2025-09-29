@@ -37,14 +37,14 @@ and presents it using both visual charts and data tables.
 ## Quick Start
 
 ### Prerequisites
-- Node.js (v20.19.0 or higher recommended)
+- Node.js (v22.12.0 or higher recommended)
 - npm package manager
 
 ### Installation
 
 1. Clone the repository
    ```bash
-   git clone <repository-url>
+   git clone `https://github.com/ayphilly/earthquake-viz`
    cd earthquake-viz
    ```
 
@@ -85,9 +85,11 @@ and presents it using both visual charts and data tables.
 ```
 src/
 ├── components/          # React components
+│   ├── inputs/          # Houses Buttons, Inputs e.t.c
 │   ├── ChartPanel.tsx   # Interactive scatter plot with axis controls
+│   ├── SelectedQuake.tsx   # Component that displays selected Row
 │   ├── DataTable.tsx    # TanStack Table with pagination and sorting
-│   └── Loader.tsx # Animated loading component
+│   └── Loader.tsx       # Animated loading component
 ├── containers/          # view/page containers
 │   ├── ViewContent.tsx  # handles the main app content
 ├── context/             # React Context providers
@@ -98,8 +100,7 @@ src/
 │   ├── index.ts         # App Redux store configuration
 │   ├── earthquakeSlice.ts # App Redux toolkit slice
 │   └── useEarthquakeStore.ts # App Zustand store
-├── types/               # All type definitions
-│   └── earthquake.ts    # Data types and interfaces
+├── types/               # Houses Data types and interfaces
 ├── App.tsx             # Main application component
 ├── main.tsx            # Application entry point
 └── index.css           # Global styles and Tailwind imports

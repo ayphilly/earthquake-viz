@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: #F9FAFB;
+  color: #080A12;
+  line-height: 1.5;
+}
+
+
+ul.paginationList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  width: fit-content;
+  align-items: center;
+}
+
+ul.paginationList li {
+  margin: 0 5px;
+  font-size: 10px;
+  line-height: 1em;
+  color: #1d2667;
+  min-width: 1em !important;
+  min-height: 1em !important;
+  font-family: "Outfit";
+}
+
+ul.paginationList li.active a {
+  /* padding: 8px 8px; */
+  border-radius: 5px;
+  color: #f3f5ff;
+  cursor: pointer;
+}
+
+ul.paginationList li.selected {
+  width: 2.5em;
+  height: 2.5em;
+  min-height: 1.5em !important;
+  min-width: 1.5em !important;
+  background-color: #e1e6ed;
+  color: #636363;
+  border-radius: 5px;
+}
+
+ul.paginationList li a {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+}
+
+ul.paginationList li a:hover {
+  color: #4754ab;
+}
+
+ul.paginationList li.previous a,
+ul.paginationList li.next a,
+ul.paginationList li.break-me a {
+  padding: 5px 10px;
+  font-weight: 800;
+  background-color: transparent;
+  color: #848f9f;
+}
+
+ul.paginationList li.previous a:hover,
+ul.paginationList li.next a:hover,
+ul.paginationList li.break-me a:hover {
+  background-color: #f9fbfc;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

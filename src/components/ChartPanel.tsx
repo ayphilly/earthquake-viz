@@ -179,14 +179,14 @@ const CustomTooltip = ({
 interface CustomScatterShapeProps {
   cx?: number;
   cy?: number;
-  payload: EarthquakeData;
+  payload?: EarthquakeData;
 }
 
 const CustomScatterShape = (props: CustomScatterShapeProps) => {
   const { cx, cy, payload } = props;
   const { highlightedRecord } = useEarthquakeStore();
 
-  const isHighlighted = highlightedRecord?.id === payload.id;
+  const isHighlighted = highlightedRecord?.id === payload?.id;
 
   return (
     <circle

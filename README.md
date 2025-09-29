@@ -107,7 +107,6 @@ src/
 └── index.css           # Global styles and Tailwind imports
 ```
 
-
 ### Color Palette
 
 - Main Colors: Blue spectrum from `#E5EFFF` to `#030407`

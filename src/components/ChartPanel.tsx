@@ -14,6 +14,7 @@ import { useEarthquakeContext } from "../context/EarthquakeContext";
 import { useEarthquakeStore } from "../store/useEarthquakeStore";
 import { setChartAxis } from "../store/earthquakeSlice";
 import type { EarthquakeData, ChartAxisOption } from "../types/earthquake";
+import moment from "moment";
 
 const chartAxisOptions: ChartAxisOption[] = [
   { key: "mag", label: "Magnitude", type: "numeric" },
@@ -57,29 +58,6 @@ const ChartPanel: React.FC = () => {
 
   const handleDotHover = (data: EarthquakeData | null) => {
     setHighlightedRecord(data);
-  };
-
-  const CustomTooltip = ({
-    active,
-    payload,
-  }: {
-    active?: boolean;
-    payload?: { payload: EarthquakeData }[];
-  }) => {
-    if (active && payload && payload[0]) {
-      const data = payload[0].payload;
-      return (
-        <div className="bg-white p-3 border border-sec-300 rounded-lg shadow-lg">
-          <p className="font-semibold text-main-902">{data.place}</p>
-          <p className="text-sm text-sec-700">Magnitude: {data.mag}</p>
-          <p className="text-sm text-sec-700">Depth: {data.depth} km</p>
-          <p className="text-sm text-sec-700">
-            Time: {new Date(data.time).toLocaleString()}
-          </p>
-        </div>
-      );
-    }
-    return null;
   };
 
   const formatChartData = () => {
@@ -175,7 +153,36 @@ const ChartPanel: React.FC = () => {
 
 export default ChartPanel;
 
-const CustomScatterShape = (props: any) => {
+const CustomTooltip = ({
+  active,
+  payload,
+}: {
+  active?: boolean;
+  payload?: { payload: EarthquakeData }[];
+}) => {
+  if (active && payload && payload[0]) {
+    const data = payload[0].payload;
+    return (
+      <div className="bg-white p-3 border border-sec-300 rounded-lg shadow-lg">
+        <p className="font-semibold text-main-902">{data.place}</p>
+        <p className="text-sm text-sec-700">Magnitude: {data.mag}</p>
+        <p className="text-sm text-sec-700">Depth: {data.depth} km</p>
+        <p className="text-sm text-sec-700">
+          Time: {moment(data.time).format("YYYY-MM-DD")}
+        </p>
+      </div>
+    );
+  }
+  return null;
+};
+
+interface CustomScatterShapeProps {
+  cx?: number;
+  cy?: number;
+  payload: EarthquakeData;
+}
+
+const CustomScatterShape = (props: CustomScatterShapeProps) => {
   const { cx, cy, payload } = props;
   const { highlightedRecord } = useEarthquakeStore();
 
